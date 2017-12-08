@@ -1,6 +1,6 @@
 language: cpp
 before_script:
-  - sudo apt-get install libboost-test-dev -y
+#  - sudo apt-get install libboost-test-dev -y
 script:
   - cmake .
   - cmake --build .
@@ -9,7 +9,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -T otus_cpp_01_cli-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb
-   -uevgenykol:$BINTRAY_API_KEY "https://api.bintray.com/content/evgenykol/otus_cpp_01/
-   otus_cpp_01_cli/$TRAVIS_BUILD_NUMBER/otus_cpp_01_cli-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;
-   deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T otus_cpp_01-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uevgenykol:$BINTRAY_API_KEY "https://api.bintray.com/content/evgenykol/otus_cpp_01/otus_cpp_01_cli/$TRAVIS_BUILD_NUMBER/otus_cpp_01-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
